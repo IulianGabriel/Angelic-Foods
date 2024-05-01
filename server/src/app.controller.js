@@ -1,7 +1,6 @@
 import { Controller, Dependencies, Get } from '@nestjs/common';
 import { AppService } from './app.service';
 
-console.log('hello world');
 @Controller()
 @Dependencies(AppService)
 export class AppController {
