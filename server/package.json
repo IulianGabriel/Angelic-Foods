@@ -10,6 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "fastify": "^4.26.2"
+    "@fastify/mongodb": "^8.0.0",
+    "dotenv": "^16.4.5",
+    "fastify": "^4.26.2",
+    "mongodb": "^6.6.0"
   }
 }

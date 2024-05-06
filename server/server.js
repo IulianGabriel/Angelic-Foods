@@ -1,21 +1,33 @@
-// ESM
 import Fastify from "fastify";
+import fastifyMongo from "@fastify/mongodb";
+import dotenv from "dotenv";
+dotenv.config();
+
 const fastify = Fastify({
   logger: true,
 });
 
-fastify.get("/", async (request, reply) => {
-  return "Hello World";
+fastify.register(fastifyMongo, {
+  forceClose: true,
+  url: process.env.PASSWORD,
 });
-/**
- * Run the server!
- */
-const start = async () => {
-  try {
-    await fastify.listen({ port: 3000 });
-  } catch (err) {
+
+fastify.get("/", function (request, reply) {
+  reply.send({ hello: "world" });
+});
+
+fastify.get("/pizza", async function (request, reply) {
+  const pizza = this.mongo.client.db("food").collection("pizza");
+  const result = await pizza.find({}).toArray();
+  if (result.length === 0) {
+    throw new Error("No documents found");
+  }
+  return result;
+});
+
+fastify.listen({ port: 3000 }, function (err, address) {
+  if (err) {
     fastify.log.error(err);
     process.exit(1);
   }
-};
-start();
+});
