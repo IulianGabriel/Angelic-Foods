@@ -1,5 +1,11 @@
 import Fastify from "fastify";
 import fastifyMongo from "@fastify/mongodb";
+import getBeverages from "./controller/beverages.js";
+import getBurgers from "./controller/burgers.js";
+import getDesserts from "./controller/desserts.js";
+import getPasta from "./controller/pasta.js";
+import getPizza from "./controller/pizza.js";
+import getSauces from "./controller/sauces.js";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -12,17 +18,15 @@ fastify.register(fastifyMongo, {
   url: process.env.PASSWORD,
 });
 
+fastify.register(getBeverages);
+fastify.register(getBurgers);
+fastify.register(getDesserts);
+fastify.register(getPasta);
+fastify.register(getPizza);
+fastify.register(getSauces);
+
 fastify.get("/", function (request, reply) {
   reply.send({ hello: "world" });
-});
-
-fastify.get("/pizza", async function (request, reply) {
-  const pizza = this.mongo.client.db("food").collection("pizza");
-  const result = await pizza.find({}).toArray();
-  if (result.length === 0) {
-    throw new Error("No documents found");
-  }
-  return result;
 });
 
 fastify.listen({ port: 3000 }, function (err, address) {
