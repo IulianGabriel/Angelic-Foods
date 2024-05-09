@@ -1,8 +1,23 @@
+import { useEffect, useState } from "react";
 
 const Sauces = () => {
-  return (
-    <h1>This is the Sauces route</h1>
-  )
-}
+  const [saucesData, getSaucesData] = useState([]);
 
-export default Sauces
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await fetch("http://localhost:3000/sauces");
+      const json = await data.json();
+      return getSaucesData(json);
+    };
+    fetchData();
+  }, []);
+  return (
+    <>
+      {saucesData.map((sauce) => (
+        <div key={sauce._id}>{sauce.name}</div>
+      ))}
+    </>
+  );
+};
+
+export default Sauces;
