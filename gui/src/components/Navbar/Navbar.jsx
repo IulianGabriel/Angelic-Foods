@@ -1,36 +1,6 @@
 import { Link } from "react-router-dom";
+import { foods } from "../../utils/foods";
 import "./navbar.css";
-
-const foods = [
-  {
-    url: "/",
-    text: "Home",
-  },
-  {
-    url: "/pizza",
-    text: "Pizza",
-  },
-  {
-    url: "/burgers",
-    text: "Burgers",
-  },
-  {
-    url: "/pasta",
-    text: "Pasta",
-  },
-  {
-    url: "/desserts",
-    text: "Desserts",
-  },
-  {
-    url: "/beverages",
-    text: "Beverages",
-  },
-  {
-    url: "/sauces",
-    text: "Sauces",
-  },
-];
 
 const Navbar = () => {
   return (
@@ -41,6 +11,7 @@ const Navbar = () => {
             <button>{food.text}</button>
           </Link>
         ))}
+        <button>Cart(0)</button>
       </div>
     </>
   );

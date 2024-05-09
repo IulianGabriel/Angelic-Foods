@@ -1,9 +1,9 @@
-import Navbar from "./components/Navbar/Navbar";
+import RootLayout from "./routes/Root";
 
 function App() {
   return (
     <>
-      <Navbar />
+      <RootLayout />
     </>
   );
 }
