@@ -14,7 +14,13 @@ const Pizza = () => {
   return (
     <>
       {pizzaData.map((pizza) => (
-        <div key={pizza._id}>{pizza.name}</div>
+        <div key={pizza._id}>
+          <img src={pizza.image} alt="pizza" />
+          <h2>{pizza.name}</h2>
+          <p>{pizza.description}</p>
+          <p>{pizza.price}$</p>
+          <button>Add to cart</button>
+        </div>
       ))}
     </>
   );

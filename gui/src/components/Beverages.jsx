@@ -11,11 +11,16 @@ const Beverages = () => {
     };
     fetchData();
   }, []);
-  
+
   return (
     <>
       {beveragesData.map((beverage) => (
-        <div key={beverage._id}>{beverage.name}</div>
+        <div key={beverage._id}>
+          <img src={beverage.image} alt="drink" />
+          <h2>{beverage.name}</h2>
+          <p>{beverage.price}$</p>
+          <button>Add to cart</button>
+        </div>
       ))}
     </>
   );

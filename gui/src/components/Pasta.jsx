@@ -14,7 +14,13 @@ const Pasta = () => {
   return (
     <>
       {pastaData.map((pasta) => (
-        <div key={pasta._id}>{pasta.name}</div>
+        <div key={pasta._id}>
+          <img src={pasta.image} alt="pasta" />
+          <h2>{pasta.name}</h2>
+          <p>{pasta.description}</p>
+          <p>{pasta.price}$</p>
+          <button>Add to cart</button>
+        </div>
       ))}
     </>
   );

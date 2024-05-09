@@ -14,7 +14,13 @@ const Sauces = () => {
   return (
     <>
       {saucesData.map((sauce) => (
-        <div key={sauce._id}>{sauce.name}</div>
+        <div key={sauce._id}>
+          <img src={sauce.image} alt="sauce" />
+          <h2>{sauce.name}</h2>
+          <p>{sauce.description}</p>
+          <p>{sauce.price}$</p>
+          <button>Add to cart</button>
+        </div>
       ))}
     </>
   );

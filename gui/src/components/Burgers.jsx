@@ -14,7 +14,13 @@ const Burgers = () => {
   return (
     <>
       {burgersData.map((burger) => (
-        <div key={burger._id}>{burger.name}</div>
+        <div key={burger._id}>
+          <img src={burger.image} alt="burgers" />
+          <h2>{burger.name}</h2>
+          <p>{burger.description}</p>
+          <p>{burger.price}$</p>
+          <button>Add to cart</button>
+        </div>
       ))}
     </>
   );
