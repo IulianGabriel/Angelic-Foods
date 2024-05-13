@@ -9,14 +9,13 @@ a:hover {
 }
 
 .navbar-div {
-    position: sticky;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    background-color: rgb(2, 156, 66);
-    height: 50px;
-    align-items: center;
-  }
-  
+  position: sticky;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  background-color: rgb(2, 156, 66);
+  height: 50px;
+  align-items: center;
+}

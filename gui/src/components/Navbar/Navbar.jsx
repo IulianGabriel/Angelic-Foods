@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import { foods } from "../../utils/foods";
+import PropTypes from "prop-types";
+import Cart from "./Cart";
 import "./navbar.css";
 
-const Navbar = () => {
+const Navbar = ({ cartItems }) => {
   return (
     <>
       <div className="navbar-div">
@@ -11,10 +13,14 @@ const Navbar = () => {
             <button>{food.text}</button>
           </Link>
         ))}
-        <button>Cart(0)</button>
+        <Cart cartItems={cartItems} />
       </div>
     </>
   );
+};
+
+Navbar.propTypes = {
+  cartItems: PropTypes.array.isRequired,
 };
 
 export default Navbar;
