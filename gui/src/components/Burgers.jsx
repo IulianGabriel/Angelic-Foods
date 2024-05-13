@@ -1,29 +1,7 @@
-import { useEffect, useState } from "react";
+import FoodList from "./FoodList";
 
 const Burgers = () => {
-  const [burgersData, getBurgersData] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await fetch("http://localhost:3000/burgers");
-      const json = await data.json();
-      return getBurgersData(json);
-    };
-    fetchData();
-  }, []);
-  return (
-    <>
-      {burgersData.map((burger) => (
-        <div key={burger._id}>
-          <img src={burger.image} alt="burgers" />
-          <h2>{burger.name}</h2>
-          <p>{burger.description}</p>
-          <p>{burger.price}$</p>
-          <button>Add to cart</button>
-        </div>
-      ))}
-    </>
-  );
+  return <FoodList foodType="burgers" />;
 };
 
 export default Burgers;
