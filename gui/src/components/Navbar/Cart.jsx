@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { IoCloseSharp } from "react-icons/io5";
 import { calculateTotalPrice } from "../../utils/calculateTotalPrice";
+import { calculateQuantity } from "../../utils/calculateQuantity";
 import { FaShoppingCart } from "react-icons/fa";
 import PropTypes from "prop-types";
 import "./cart.css";
@@ -38,7 +39,7 @@ const Cart = ({ cartItems, setCartItems }) => {
     <>
       <div className="shopping-cart" onClick={handleOpenModal}>
         <FaShoppingCart style={{ width: "20px", height: "20px" }} />
-        <p>Cart ({cartItems.length})</p>
+        <p>Cart ({calculateQuantity(cartItems)})</p>
       </div>
       {openModal ? (
         <>
