@@ -22,6 +22,7 @@ const FoodList = ({ foodType }) => {
       ]);
     }
   };
+
   return (
     <>
       {foodData.map((food) => (
@@ -29,7 +30,7 @@ const FoodList = ({ foodType }) => {
           <img src={food.image} alt={foodType} />
           <h2>{food.name}</h2>
           {foodType !== "beverage" ? <p>{food.description}</p> : null}
-          <p>{food.price}$</p>
+          <p>${food.price}</p>
           <button
             onClick={() => handleAddToCart(food.name, food.image, food.price)}
           >

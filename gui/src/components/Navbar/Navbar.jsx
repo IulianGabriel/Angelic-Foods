@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import Cart from "./Cart";
 import "./navbar.css";
 
-const Navbar = ({ cartItems }) => {
+const Navbar = ({ cartItems, setCartItems }) => {
   return (
     <>
       <div className="navbar-div">
@@ -13,7 +13,7 @@ const Navbar = ({ cartItems }) => {
             <button>{food.text}</button>
           </Link>
         ))}
-        <Cart cartItems={cartItems} />
+        <Cart cartItems={cartItems} setCartItems={setCartItems} />
       </div>
     </>
   );
@@ -26,6 +26,7 @@ Navbar.propTypes = {
       price: PropTypes.string.isRequired,
     })
   ).isRequired,
+  setCartItems: PropTypes.func.isRequired,
 };
 
 export default Navbar;

@@ -6,7 +6,7 @@ const RootLayout = () => {
   const [cartItems, setCartItems] = useState([]);
   return (
     <>
-      <Navbar cartItems={cartItems} />
+      <Navbar cartItems={cartItems} setCartItems={setCartItems} />
       <main>
         <Outlet context={[cartItems, setCartItems]} />
       </main>
