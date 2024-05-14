@@ -5,9 +5,10 @@ import BurgersRoute from "./routes/BurgersRoute.jsx";
 import PastaRoute from "./routes/PastaRoute.jsx";
 import DessertsRoute from "./routes/DessertsRoute.jsx";
 import BeveragesRoute from "./routes/BeveragesRoute.jsx";
-import SaucesRoute from "./routes/SaucesRoute.jsx";
+import SidesRoute from "./routes/SidesRoute.jsx";
 import RootLayout from "./routes/root.jsx";
 import HomePage from "./components/HomePage.jsx";
+import MealsRoute from "./routes/MealsRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       { index: true, element: <HomePage /> },
+      {
+        path: "meals",
+        element: <MealsRoute />,
+      },
       {
         path: "pizza",
         element: <PizzaRoute />,
@@ -36,8 +41,8 @@ const router = createBrowserRouter([
         element: <BeveragesRoute />,
       },
       {
-        path: "sauces",
-        element: <SaucesRoute />,
+        path: "sides",
+        element: <SidesRoute />,
       },
     ],
   },

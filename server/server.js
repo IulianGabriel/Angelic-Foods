@@ -5,8 +5,9 @@ import getBurgers from "./controller/burgers.js";
 import getDesserts from "./controller/desserts.js";
 import getPasta from "./controller/pasta.js";
 import getPizza from "./controller/pizza.js";
-import getSauces from "./controller/sauces.js";
+import getSides from "./controller/sides.js";
 import dotenv from "dotenv";
+import getMeals from "./controller/meals.js";
 dotenv.config();
 
 const fastify = Fastify({
@@ -18,12 +19,13 @@ fastify.register(fastifyMongo, {
   url: process.env.PASSWORD,
 });
 
+fastify.register(getMeals);
 fastify.register(getBeverages);
 fastify.register(getBurgers);
 fastify.register(getDesserts);
 fastify.register(getPasta);
 fastify.register(getPizza);
-fastify.register(getSauces);
+fastify.register(getSides);
 
 fastify.get("/", function (request, reply) {
   reply.send({ hello: "world" });

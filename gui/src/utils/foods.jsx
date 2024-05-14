@@ -4,13 +4,19 @@ import { FaBurger } from "react-icons/fa6";
 import { GiNoodles } from "react-icons/gi";
 import { GiCakeSlice } from "react-icons/gi";
 import { GiSodaCan } from "react-icons/gi";
-import { GiKetchup } from "react-icons/gi";
+import { GiFrenchFries } from "react-icons/gi";
+import { MdFastfood } from "react-icons/md";
 
 export const foods = [
   {
     url: "/",
     text: "Home",
     icon: <FaHome />,
+  },
+  {
+    url: "/meals",
+    text: "Meals",
+    icon: <MdFastfood />,
   },
   {
     url: "/pizza",
@@ -39,8 +45,8 @@ export const foods = [
     icon: <GiSodaCan />,
   },
   {
-    url: "/sauces",
-    text: "Sauces",
-    icon: <GiKetchup />,
+    url: "/sides",
+    text: "Sides",
+    icon: <GiFrenchFries />,
   },
 ];
