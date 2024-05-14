@@ -22,8 +22,6 @@ const FoodList = ({ foodType }) => {
       ]);
     }
   };
-
-  console.log(cartItems);
   return (
     <>
       {foodData.map((food) => (

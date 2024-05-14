@@ -20,7 +20,12 @@ const Navbar = ({ cartItems }) => {
 };
 
 Navbar.propTypes = {
-  cartItems: PropTypes.array.isRequired,
+  cartItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      price: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
 
 export default Navbar;

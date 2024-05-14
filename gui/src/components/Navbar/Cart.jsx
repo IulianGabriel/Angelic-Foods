@@ -14,6 +14,7 @@ const Cart = ({ cartItems }) => {
     setOpenModal(false);
   };
 
+  console.log(cartItems);
   return (
     <>
       <button onClick={handleOpenModal}>Cart({cartItems.length})</button>
@@ -24,6 +25,7 @@ const Cart = ({ cartItems }) => {
             <button onClick={handleCloseModal}>
               <IoCloseSharp />
             </button>
+            {cartItems.length === 0 && <p>Your cart is empty</p>}
             {cartItems.map((item, index) => (
               <div key={index}>
                 <img
@@ -40,6 +42,8 @@ const Cart = ({ cartItems }) => {
                   <p>{item.quantity}</p>
                   <button>+</button>
                 </section>
+                <button>Close</button>
+                {cartItems.length < 1 ? "" : <button>Go to Checkout</button>}
               </div>
             ))}
           </div>
@@ -55,7 +59,7 @@ Cart.propTypes = {
       image: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       quantity: PropTypes.number.isRequired,
-      price: PropTypes.number.isRequired,
+      price: PropTypes.string.isRequired,
     })
   ).isRequired,
 };
