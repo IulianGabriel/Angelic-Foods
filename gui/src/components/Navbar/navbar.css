@@ -40,7 +40,7 @@ a {
   color: #2c3c54;
 }
 
-.display-food{
+.display-foods {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.2rem;
 }
