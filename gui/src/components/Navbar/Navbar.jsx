@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { foods } from "../../utils/foods";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import Cart from "./Cart";
 import logo from "../../assets/Logo.png";
@@ -10,7 +11,9 @@ const Navbar = ({ cartItems, setCartItems }) => {
     <>
       <div className="navbar-div">
         <div className="logo-container">
-          <img className="logo" src={logo} alt="logo" />
+          <Link to="/">
+            <img className="logo" src={logo} alt="logo" />
+          </Link>
         </div>
         <div className="food-routes">
           {foods.map((food, index) => (

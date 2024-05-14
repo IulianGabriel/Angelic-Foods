@@ -6,8 +6,8 @@ import getDesserts from "./controller/desserts.js";
 import getPasta from "./controller/pasta.js";
 import getPizza from "./controller/pizza.js";
 import getSides from "./controller/sides.js";
-import dotenv from "dotenv";
 import getMeals from "./controller/meals.js";
+import dotenv from "dotenv";
 dotenv.config();
 
 const fastify = Fastify({
