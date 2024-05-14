@@ -18,3 +18,16 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
 }
+
+.shopping-cart {
+  display: flex;
+  text-decoration: none;
+  gap: 0.5rem;
+  color: rgb(240, 240, 240);
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+.shopping-cart:active {
+  transform: scale(0.95);
+}

@@ -1,6 +1,7 @@
 import useFoodData from "../hooks/useFoodData";
 import PropTypes from "prop-types";
 import { useOutletContext } from "react-router-dom";
+import "./foodList.css";
 
 const FoodList = ({ foodType }) => {
   const foodData = useFoodData(foodType);
@@ -24,21 +25,24 @@ const FoodList = ({ foodType }) => {
   };
 
   return (
-    <>
+    <div className="food-container">
       {foodData.map((food) => (
-        <div key={food._id}>
-          <img src={food.image} alt={foodType} />
-          <h2>{food.name}</h2>
-          {foodType !== "beverage" ? <p>{food.description}</p> : null}
-          <p>${food.price}</p>
+        <div key={food._id} className="food-card">
+          <img src={food.image} alt={foodType} className="food-image" />
+          <h2 className="food-name">{food.name}</h2>
+          <p className="food-price">${food.price}</p>
+          {foodType !== "beverage" ? (
+            <p className="food-description">{food.description}</p>
+          ) : null}
           <button
+            className="addToCart-btn"
             onClick={() => handleAddToCart(food.name, food.image, food.price)}
           >
             Add to cart
           </button>
         </div>
       ))}
-    </>
+    </div>
   );
 };
 
