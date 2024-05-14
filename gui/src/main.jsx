@@ -7,12 +7,14 @@ import DessertsRoute from "./routes/DessertsRoute.jsx";
 import BeveragesRoute from "./routes/BeveragesRoute.jsx";
 import SaucesRoute from "./routes/SaucesRoute.jsx";
 import RootLayout from "./routes/root.jsx";
+import HomePage from "./components/HomePage.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
     children: [
+      { index: true, element: <HomePage /> },
       {
         path: "pizza",
         element: <PizzaRoute />,
