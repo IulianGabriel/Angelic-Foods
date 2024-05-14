@@ -39,3 +39,8 @@ a {
 .active {
   color: #2c3c54;
 }
+
+.display-food{
+  display: flex;
+  gap: 0.5rem;
+}

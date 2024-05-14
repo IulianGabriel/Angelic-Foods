@@ -21,7 +21,10 @@ const Navbar = ({ cartItems, setCartItems }) => {
                 isPending ? "pending" : isActive ? "active" : ""
               }
             >
-              {food.text}
+              <div className="display-foods">
+                {food.icon}
+                {food.text}
+              </div>
             </NavLink>
           ))}
         </div>
