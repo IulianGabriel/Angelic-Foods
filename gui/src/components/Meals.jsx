@@ -1,9 +1,7 @@
-import FoodList from "./FoodList"
+import FoodList from "./Foodlist/FoodList";
 
 const Meals = () => {
-  return (
-    <FoodList foodType="meals"/>
-  )
-}
+  return <FoodList foodType="meals" />;
+};
 
-export default Meals
+export default Meals;

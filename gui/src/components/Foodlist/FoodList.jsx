@@ -1,4 +1,4 @@
-import useFoodData from "../hooks/useFoodData";
+import useFoodData from "../../hooks/useFoodData";
 import PropTypes from "prop-types";
 import { useOutletContext } from "react-router-dom";
 import "./foodList.css";

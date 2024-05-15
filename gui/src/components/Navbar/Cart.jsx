@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { IoCloseSharp } from "react-icons/io5";
 import { calculateTotalPrice } from "../../utils/calculateTotalPrice";
 import { calculateQuantity } from "../../utils/calculateQuantity";
 import { FaShoppingCart } from "react-icons/fa";
@@ -45,36 +44,58 @@ const Cart = ({ cartItems, setCartItems }) => {
         <>
           <div className="modal-overlay" onClick={handleCloseModal}></div>
           <div className="modal-container">
-            <button onClick={handleCloseModal}>
-              <IoCloseSharp />
-            </button>
-            <h2>Your Cart</h2>
-            {cartItems.length === 0 && <p>Your cart is empty</p>}
+            <div className="cart-title-container">
+            <h2 className="cart-title">Your Cart</h2>
+            <hr />
+            </div>
+            {cartItems.length === 0 && (
+              <p className="empty-cart-text">Your cart is empty</p>
+            )}
             {cartItems.map((item, index) => (
-              <div key={index}>
-                <img
-                  src={item.image}
-                  style={{ width: "50px", height: "50px" }}
-                  alt={item.name}
-                />
-                <p>{item.name}</p>
-                <p>
-                  {item.quantity} X ${item.price}
-                </p>
-                <section>
-                  <button onClick={() => handleDecreaseQuantity(index)}>
+              <div className="product-container" key={index}>
+                <div className="product-details">
+                  <img
+                    className="product-image"
+                    src={item.image}
+                    alt={item.name}
+                  />
+                  <p className="product-name">{item.name}</p>
+                  <p className="product-qp">
+                    {item.quantity} x ${item.price}
+                  </p>
+                </div>
+                <div className="product-quantity">
+                  <button
+                    className="quantity-buttons"
+                    onClick={() => handleDecreaseQuantity(index)}
+                  >
                     -
                   </button>
-                  <p>{item.quantity}</p>
-                  <button onClick={() => handleIncreaseQuantity(index)}>
+                  <p className="display-selected-quantity">{item.quantity}</p>
+                  <button
+                    className="quantity-buttons"
+                    onClick={() => handleIncreaseQuantity(index)}
+                  >
                     +
                   </button>
-                </section>
+                </div>
               </div>
             ))}
-            <p>Total: ${calculateTotalPrice(cartItems)}</p>
-            <button onClick={handleCloseModal}>Close</button>
-            {cartItems.length < 1 ? "" : <button>Go to Checkout</button>}
+            <div className="cart-summary">
+              {cartItems.length === 0 ? null : (
+                <p className="total-price">
+                  Total: ${calculateTotalPrice(cartItems)}
+                </p>
+              )}
+              <div className="cart-summary-buttons">
+                <button className="closeCart-btn" onClick={handleCloseModal}>
+                  Close
+                </button>
+                {cartItems.length < 1 ? null : (
+                  <button className="checkout-button">Go to Checkout</button>
+                )}
+              </div>
+            </div>
           </div>
         </>
       ) : null}

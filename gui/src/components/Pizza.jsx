@@ -1,4 +1,4 @@
-import FoodList from "./FoodList";
+import FoodList from "./Foodlist/FoodList";
 
 const Pizza = () => {
   return <FoodList foodType="pizza" />;
