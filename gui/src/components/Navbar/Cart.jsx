@@ -45,11 +45,11 @@ const Cart = ({ cartItems, setCartItems }) => {
           <div className="modal-overlay" onClick={handleCloseModal}></div>
           <div className="modal-container">
             <div className="cart-title-container">
-            <h2 className="cart-title">Your Cart</h2>
-            <hr />
+              <h2 className="cart-title">Your Cart</h2>
+              <hr />
             </div>
             {cartItems.length === 0 && (
-              <p className="empty-cart-text">Your cart is empty</p>
+              <p className="empty-cart-text">Your cart is empty.</p>
             )}
             {cartItems.map((item, index) => (
               <div className="product-container" key={index}>
@@ -88,7 +88,14 @@ const Cart = ({ cartItems, setCartItems }) => {
                 </p>
               )}
               <div className="cart-summary-buttons">
-                <button className="closeCart-btn" onClick={handleCloseModal}>
+                <button
+                  className={
+                    cartItems.length === 0
+                      ? "empty-closeCart-btn"
+                      : "closeCart-btn"
+                  }
+                  onClick={handleCloseModal}
+                >
                   Close
                 </button>
                 {cartItems.length < 1 ? null : (

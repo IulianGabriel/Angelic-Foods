@@ -53,6 +53,10 @@ hr {
 
 .empty-cart-text {
   font-size: 4rem;
+  color: #e2eae5;
+  display: flex;
+  justify-content: center;
+  margin-top: 10rem;
 }
 
 .product-container {
@@ -153,6 +157,19 @@ hr {
   transform: scale(0.95);
 }
 
+.empty-closeCart-btn {
+  background-color: #e2eae5;
+  color: #2c3e50;
+  width: 6rem;
+  height: 3rem;
+  border: none;
+  border-radius: 0.3rem;
+  position: fixed;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .closeCart-btn {
   background-color: #e2eae5;
   color: #2c3e50;
@@ -162,12 +179,17 @@ hr {
   border-radius: 0.3rem;
 }
 
-.closeCart-btn:hover {
+.closeCart-btn:hover,
+.empty-closeCart-btn:hover {
   background-color: #bfc7c2;
 }
 
 .closeCart-btn:active {
   transform: scale(0.95);
+}
+
+.empty-closeCart-btn:active {
+  transform: translate(-50%, -50%) scale(0.95);
 }
 
 .cart-summary::-webkit-scrollbar-thumb:hover {
