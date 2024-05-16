@@ -1,5 +1,5 @@
-import mainImage from "../assets/mainImage.jpg";
-import { carouselFoods } from "../utils/carouselFoods";
+import mainImage from "../../assets/mainImage.jpg";
+import { carouselFoods } from "../../utils/carouselFoods";
 import { IoArrowDown } from "react-icons/io5";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";

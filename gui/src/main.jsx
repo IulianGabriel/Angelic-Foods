@@ -7,7 +7,7 @@ import DessertsRoute from "./routes/DessertsRoute.jsx";
 import BeveragesRoute from "./routes/BeveragesRoute.jsx";
 import SidesRoute from "./routes/SidesRoute.jsx";
 import RootLayout from "./routes/root.jsx";
-import HomePage from "./components/HomePage.jsx";
+import HomePage from "./components/Homepage/HomePage.jsx";
 import MealsRoute from "./routes/MealsRoute.jsx";
 
 const router = createBrowserRouter([
