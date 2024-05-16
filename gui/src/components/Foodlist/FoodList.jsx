@@ -1,10 +1,11 @@
 import useFoodData from "../../hooks/useFoodData";
 import PropTypes from "prop-types";
 import { useOutletContext } from "react-router-dom";
+import ClipLoader from "react-spinners/ClipLoader";
 import "./foodList.css";
 
 const FoodList = ({ foodType }) => {
-  const foodData = useFoodData(foodType);
+  const [foodData, loading] = useFoodData(foodType);
   const [cartItems, setCartItems] = useOutletContext();
   const handleAddToCart = (itemName, itemImage, itemPrice) => {
     // Check if the item is already in the cart
@@ -26,6 +27,21 @@ const FoodList = ({ foodType }) => {
 
   return (
     <div className="food-container">
+      {loading && (
+        <>
+          <h1 className="loading-message">Loading...</h1>
+          <ClipLoader
+            color="#e0a42c"
+            size="50"
+            cssOverride={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+            }}
+          />
+        </>
+      )}
       {foodData.map((food) => (
         <div key={food._id} className="food-card">
           <img src={food.image} alt={foodType} className="food-image" />

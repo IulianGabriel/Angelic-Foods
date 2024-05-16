@@ -57,3 +57,12 @@
 .addToCart-btn:active {
   transform: scale(0.95);
 }
+
+.loading-message {
+  color: #ecf0f1;
+  font-size: 4rem;
+  position: absolute;
+  top: 45%;
+  left: 52%;
+  transform: translate(-50%, -50%);
+}

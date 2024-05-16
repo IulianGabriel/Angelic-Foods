@@ -1,9 +1,9 @@
-import { carouselFoods } from "../../utils/carouselFoods";
+import { carouselFoods } from "../../../utils/carouselFoods";
 import { LuMenuSquare } from "react-icons/lu";
 import Carousel from "react-multi-carousel";
 import { Link } from "react-router-dom";
 import "react-multi-carousel/lib/styles.css";
-import "./homepage.css";
+import "./foodSelection.css";
 
 const FoodSelection = () => {
   return (

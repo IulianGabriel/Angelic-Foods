@@ -1,6 +1,6 @@
-import mainImage from "../../assets/mainImage.jpg";
+import mainImage from "../../../assets/mainImage.jpg";
 import { IoArrowDown } from "react-icons/io5";
-import "./homepage.css";
+import "./mainContent.css";
 const MainContent = () => {
   return (
     <div className="image-container">
