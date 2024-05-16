@@ -12,12 +12,12 @@
 
 .main-image {
   width: 100vw;
-  height: 89vh;
+  height: 90vh;
   z-index: -1;
 }
 
 .image-container {
-  position: absolute;
+  position: relative;
   display: flex;
   justify-content: center;
 }
@@ -69,4 +69,30 @@
 
 .restaurant-seeMore:active {
   transform: scale(0.9);
+}
+
+.meals-container {
+  background-color: #222;
+  width: 100%;
+  margin-top: 5rem;
+}
+
+.promote-meals-text {
+  color: #efeae4;
+  font-size: 4rem;
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+}
+
+.mealImage {
+}
+
+.mealImage-container {
+  opacity: 0.8;
+  margin-top: 5rem;
+}
+
+.mealImage-container:hover {
+  opacity: 1;
 }
