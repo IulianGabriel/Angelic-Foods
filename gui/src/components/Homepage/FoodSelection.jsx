@@ -7,7 +7,7 @@ import "./homepage.css";
 
 const FoodSelection = () => {
   return (
-    <div className="meals-container" id="mealImage">
+    <div className="meals-container" id="menu">
       <h1 className="promote-meals-text">
         <span className="icon-styling">
           <LuMenuSquare color="#e0a42c" />

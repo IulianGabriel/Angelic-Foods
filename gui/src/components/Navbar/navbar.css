@@ -14,7 +14,7 @@ a {
   width: 100%;
   background-color: #e0a42c;
   height: 10rem;
-  z-index: 10;
+  z-index: 9999;
 }
 
 .logo-container,
