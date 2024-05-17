@@ -146,7 +146,7 @@ hr {
   border: none;
   border-radius: 0.3rem;
   cursor: pointer;
-  color:   color: #222;
+  color: #222;
 }
 
 .checkout-button:hover {
@@ -156,7 +156,6 @@ hr {
 .checkout-button:active {
   transform: scale(0.95);
 }
-
 
 .closeCart-btn {
   width: 6rem;
