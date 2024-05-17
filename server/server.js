@@ -1,5 +1,6 @@
 import Fastify from "fastify";
 import fastifyMongo from "@fastify/mongodb";
+import fastifyCors from "@fastify/cors";
 import getBeverages from "./controller/beverages.js";
 import getBurgers from "./controller/burgers.js";
 import getDesserts from "./controller/desserts.js";
@@ -9,9 +10,13 @@ import getSides from "./controller/sides.js";
 import getMeals from "./controller/meals.js";
 import dotenv from "dotenv";
 dotenv.config();
-
 const fastify = Fastify({
   logger: true,
+});
+
+fastify.register(fastifyCors, {
+  origin: "https://angelic-foods.vercel.app",
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
 });
 
 fastify.register(fastifyMongo, {
