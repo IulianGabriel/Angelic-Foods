@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-
 const useFoodData = (foodType) => {
   const [foodData, setFoodData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [sortingFilter, setSortingFilter] = useState("");
+  const serverURL = import.meta.env.VITE_SERVER_URL;
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let url = `http://localhost:3000/${foodType}`;
+        let url = `${serverURL}/${foodType}`;
         if (sortingFilter !== "") {
           url += `?sort=${sortingFilter}`;
         }
@@ -24,7 +24,7 @@ const useFoodData = (foodType) => {
       }
     };
     fetchData();
-  }, [foodType, sortingFilter]);
+  }, [foodType, sortingFilter, serverURL]);
 
   return [foodData, loading, setSortingFilter];
 };
