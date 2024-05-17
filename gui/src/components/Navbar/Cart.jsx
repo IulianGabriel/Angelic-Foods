@@ -3,16 +3,23 @@ import { calculateTotalPrice } from "../../utils/calculateTotalPrice";
 import { calculateQuantity } from "../../utils/calculateQuantity";
 import { FaShoppingCart } from "react-icons/fa";
 import PropTypes from "prop-types";
+import Checkout from "./Checkout";
 import "./cart.css";
 
 const Cart = ({ cartItems, setCartItems }) => {
   const [openModal, setOpenModal] = useState(false);
-
+  const [openCheckout, setOpenCheckout] = useState(false);
+  const totalPrice = calculateTotalPrice(cartItems);
   const handleOpenModal = () => {
     setOpenModal(true);
   };
 
   const handleCloseModal = () => {
+    setOpenModal(false);
+  };
+
+  const handleOpenCheckout = () => {
+    setOpenCheckout(true);
     setOpenModal(false);
   };
 
@@ -40,7 +47,7 @@ const Cart = ({ cartItems, setCartItems }) => {
         <FaShoppingCart style={{ width: "20px", height: "20px" }} />
         <p>Cart ({calculateQuantity(cartItems)})</p>
       </div>
-      {openModal ? (
+      {openModal && !openCheckout ? (
         <>
           <div className="modal-overlay" onClick={handleCloseModal}></div>
           <div className="modal-container">
@@ -83,9 +90,7 @@ const Cart = ({ cartItems, setCartItems }) => {
             ))}
             <div className="cart-summary">
               {cartItems.length === 0 ? null : (
-                <p className="total-price">
-                  Total: ${calculateTotalPrice(cartItems)}
-                </p>
+                <p className="total-price">Total: ${totalPrice}</p>
               )}
               <div className="cart-summary-buttons">
                 <button
@@ -99,13 +104,29 @@ const Cart = ({ cartItems, setCartItems }) => {
                   Close
                 </button>
                 {cartItems.length < 1 ? null : (
-                  <button className="checkout-button">Go to Checkout</button>
+                  <button
+                    onClick={handleOpenCheckout}
+                    className="checkout-button"
+                  >
+                    Go to Checkout
+                  </button>
                 )}
               </div>
             </div>
           </div>
         </>
       ) : null}
+      {openCheckout ? (
+        <>
+          <Checkout
+            openCheckout={openCheckout}
+            setOpenCheckout={setOpenCheckout}
+            totalPrice={totalPrice}
+          />
+        </>
+      ) : (
+        ""
+      )}
     </>
   );
 };

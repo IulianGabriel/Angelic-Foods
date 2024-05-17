@@ -146,7 +146,7 @@ hr {
   border: none;
   border-radius: 0.3rem;
   cursor: pointer;
-  color: #2c3e50;
+  color:   color: #222;
 }
 
 .checkout-button:hover {
@@ -154,6 +154,20 @@ hr {
 }
 
 .checkout-button:active {
+  transform: scale(0.95);
+}
+
+
+.closeCart-btn {
+  width: 6rem;
+  background-color: transparent;
+  border: none;
+  color: #bfc7c2;
+  cursor: pointer;
+  font-size: 1.4rem;
+}
+
+.closeCart-btn:active {
   transform: scale(0.95);
 }
 
@@ -170,22 +184,8 @@ hr {
   transform: translate(-50%, -50%);
 }
 
-.closeCart-btn {
-  background-color: #e2eae5;
-  color: #2c3e50;
-  width: 6rem;
-  height: 3rem;
-  border: none;
-  border-radius: 0.3rem;
-}
-
-.closeCart-btn:hover,
 .empty-closeCart-btn:hover {
   background-color: #bfc7c2;
-}
-
-.closeCart-btn:active {
-  transform: scale(0.95);
 }
 
 .empty-closeCart-btn:active {
