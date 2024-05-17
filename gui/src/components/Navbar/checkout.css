@@ -60,6 +60,11 @@ input {
   font-size: 1.4rem;
 }
 
+input:focus {
+  border: 1px solid #e8a42c;
+  outline: none;
+}
+
 .additional-info {
   display: flex;
   gap: 2rem;
