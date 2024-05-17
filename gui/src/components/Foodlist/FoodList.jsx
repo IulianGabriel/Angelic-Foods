@@ -31,8 +31,11 @@ const FoodList = ({ foodType }) => {
         ""
       ) : (
         <div className="price-filter-container">
-          <label className="sortBy-text" htmlFor="price">Sort by: </label>
-          <select className="select-styling"
+          <label className="sortBy-text" htmlFor="price">
+            Sort by:{" "}
+          </label>
+          <select
+            className="select-styling"
             name="price"
             id="price"
             onChange={(e) => setSortingFilter(e.target.value)}

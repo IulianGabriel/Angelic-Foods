@@ -1,38 +1,35 @@
 import { useState } from "react";
-import { calculateTotalPrice } from "../../utils/calculateTotalPrice";
-import { calculateQuantity } from "../../utils/calculateQuantity";
+import { calculateTotalPrice } from "../../../utils/calculateTotalPrice";
+import { calculateQuantity } from "../../../utils/calculateQuantity";
 import { FaShoppingCart } from "react-icons/fa";
 import PropTypes from "prop-types";
-import Checkout from "./Checkout";
+import Checkout from "../Checkout/Checkout";
 import "./cart.css";
 
 const Cart = ({ cartItems, setCartItems }) => {
-  const [openModal, setOpenModal] = useState(false);
-  const [openCheckout, setOpenCheckout] = useState(false);
+  const [openModal, setOpenModal] = useState("");
   const totalPrice = calculateTotalPrice(cartItems);
+
   const handleOpenModal = () => {
-    setOpenModal(true);
+    setOpenModal("cart");
   };
 
   const handleCloseModal = () => {
-    setOpenModal(false);
+    setOpenModal("");
   };
 
   const handleOpenCheckout = () => {
-    setOpenCheckout(true);
-    setOpenModal(false);
+    setOpenModal("checkout");
   };
 
   const handleIncreaseQuantity = (index) => {
     const updatedCartItems = [...cartItems];
-    console.log(updatedCartItems);
     updatedCartItems[index].quantity++;
     setCartItems(updatedCartItems);
   };
 
   const handleDecreaseQuantity = (index) => {
     const updatedCartItems = [...cartItems];
-    console.log(updatedCartItems);
     if (updatedCartItems[index].quantity > 1) {
       updatedCartItems[index].quantity--;
     } else {
@@ -47,7 +44,7 @@ const Cart = ({ cartItems, setCartItems }) => {
         <FaShoppingCart style={{ width: "20px", height: "20px" }} />
         <p>Cart ({calculateQuantity(cartItems)})</p>
       </div>
-      {openModal && !openCheckout ? (
+      {openModal === "cart" ? (
         <>
           <div className="modal-overlay" onClick={handleCloseModal}></div>
           <div className="modal-container">
@@ -89,7 +86,7 @@ const Cart = ({ cartItems, setCartItems }) => {
               </div>
             ))}
             <div className="cart-summary">
-              {cartItems.length === 0 ? null : (
+              {cartItems.length > 0 && (
                 <p className="total-price">Total: ${totalPrice}</p>
               )}
               <div className="cart-summary-buttons">
@@ -103,7 +100,7 @@ const Cart = ({ cartItems, setCartItems }) => {
                 >
                   Close
                 </button>
-                {cartItems.length < 1 ? null : (
+                {cartItems.length > 0 && (
                   <button
                     onClick={handleOpenCheckout}
                     className="checkout-button"
@@ -116,17 +113,12 @@ const Cart = ({ cartItems, setCartItems }) => {
           </div>
         </>
       ) : null}
-      {openCheckout ? (
-        <>
-          <Checkout
-            openCheckout={openCheckout}
-            setOpenCheckout={setOpenCheckout}
-            totalPrice={totalPrice}
-          />
-        </>
-      ) : (
-        ""
-      )}
+      <Checkout
+        openCheckout={openModal}
+        setOpenCheckout={setOpenModal}
+        totalPrice={totalPrice}
+        setCartItems={setCartItems}
+      />
     </>
   );
 };
@@ -137,7 +129,7 @@ Cart.propTypes = {
       image: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       quantity: PropTypes.number.isRequired,
-      price: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired,
     })
   ).isRequired,
   setCartItems: PropTypes.func.isRequired,

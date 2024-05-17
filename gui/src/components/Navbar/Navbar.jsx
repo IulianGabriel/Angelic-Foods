@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import { foods } from "../../utils/foods";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import Cart from "./Cart";
+import Cart from "./Cart/Cart";
 import logo from "../../assets/Logo.png";
 import "./navbar.css";
 
@@ -43,7 +43,7 @@ Navbar.propTypes = {
   cartItems: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
-      price: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired,
     })
   ).isRequired,
   setCartItems: PropTypes.func.isRequired,
