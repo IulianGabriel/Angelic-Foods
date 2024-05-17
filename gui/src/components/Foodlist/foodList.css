@@ -66,3 +66,21 @@
   left: 52%;
   transform: translate(-50%, -50%);
 }
+
+.price-filter-container {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sortBy-text {
+  font-size: 1.8rem;
+  margin-left: 2rem;
+  color: #ecf0f1;
+}
+
+select {
+  font-size: 1.4rem;
+  border-radius: 0.4rem;
+}
