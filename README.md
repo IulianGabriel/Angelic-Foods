@@ -1,30 +1,32 @@
-<h1 align="center">Angelic Food</h1>
+<h1 align="center">Simple Weight Tracker</h1>
 <p align="center">
-  <a href="https://angelic-foods.vercel.app/" style="display:inline-block;">Live App</a>
+  <a href="dv97q6iy95j7q.cloudfront.net" style="display:inline-block;">Live App</a>
 </p>
-  <p align="center"> ~It takes around a minute for the backend server to start.~ </p>
 
 ## Overview
-Angelic Food is a full-stack web application designed for ordering food online. Users can browse through various categories like pizza, meals, burgers, and desserts, add items to their cart, and proceed to checkout. The application features a smooth and intuitive user interface to enhance the ordering experience.
+**Simple Weight Tracker** is a web application designed for tracking weight records over time. Users can view their weight history displayed on a dynamic graph, including the highest, current, and lowest weights recorded. The application provides an intuitive and straightforward interface for adding, updating, and deleting weight records.
 
 ## Features
-- **Category Browsing:** Users can explore different food categories including pizza, meals, burgers, and desserts.
-- **Price Filter:** Users can sort items by price, either from low to high or high to low, to easily find options within their budget.
-- **Add to Cart:** Simple functionality for adding food items to the cart.
-- **Checkout:** Secure and efficient checkout process.
+- **Weight Visualization:** View weight progress on a graph for a clear historical perspective.
+- **Highest, Current, and Lowest Indicators:** Displays the highest, most recent, and lowest recorded weights for easy reference.
+- **Add/Update/Delete Records:** Flexible functionality to add new records, modify existing ones, or delete entries.
+- **Fully Responsive:** The app is designed to deliver an optimized experience across both mobile and desktop devices.
   
 ## Technologies Used
 
 ### Frontend
-- **React:** A JavaScript library for building user interfaces.
-- **React Router:** For handling routing in the application.
-- **React Multi Carousel:** For creating responsive carousels.
+- **React with TypeScript:** A powerful framework and typed language for building dynamic user interfaces.
+- **Vite:** Fast and lightweight build tool for optimized development.
+- **Used chart from nivo.rocks** Used for creating responsive and interactive charts to visualize weight data.
 - **React Spinners:** For adding loading spinners to enhance user experience.
 - **React Icons:** Provides a vast collection of icons to improve visual appeal.
 
+### Middleware
+- **GraphQL with Apollo Server:** Provides a structured and efficient API layer for the frontend to communicate with the backend.
+- 
 ### Backend
 - **Node.js:** A JavaScript runtime for building the backend server.
-- **Fastify:** A fast and low overhead web framework for Node.js.
+- **Express:** A web framework for Node.js, used to set up the backend server.
 - **MongoDB:** A NoSQL database for storing application data.
 - **CORS:** Middleware for enabling Cross-Origin Resource Sharing.
 - **DOTENV:** For managing environment variables.
@@ -34,8 +36,4 @@ Angelic Food is a full-stack web application designed for ordering food online. 
 The frontend is deployed on Vercel. 
 
 - **Backend**:
-The backend is deployed on Render. 
-
-# License
-
-This project is licensed under the MIT License.
+The backend is deployed on Render.
